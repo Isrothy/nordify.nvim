@@ -11,6 +11,7 @@ M.version = "0.0.0" -- x-release-please-version
 M.plugins = {
     ["aerial.nvim"] = "aerial",
     ["barbar.nvim"] = "barbar",
+    ["blink.cmp"] = "blink",
     ["codeium.nvim"] = "codeium",
     ["diffview.nvim"] = "diffview",
     ["flash.nvim"] = "flash",
@@ -121,9 +122,6 @@ function M.setup(colors, config)
             utils.cache.write({ groups = ret, inputs = inputs })
         end
     end
-
-    ---number of highlight groups
-    -- vim.notify("Loaded " .. vim.tbl_count(ret) .. " highlight groups", vim.log.levels.INFO)
 
     return ret, groups
 end

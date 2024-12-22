@@ -9,8 +9,6 @@ M.get = function()
         { bg = c.polar_night.brighter, italic = false, bold = false },
         config.styles.bufferline.current
     )
-    --- output current_hi
-    -- vim.notify(vim.inspect(current_hi), vim.log.levels.INFO)
     return {
         fill = { bg = c.polar_night.origin, fg = c.polar_night.light },
         background = { bg = c.polar_night.origin, fg = c.polar_night.light },
