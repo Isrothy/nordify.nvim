@@ -143,8 +143,12 @@ set_alias(palette.aurora, {
     purple = "15",
 })
 
-function palette.internal()
+function palette:internal()
     return internalPalette
+end
+
+if vim.g.on_nordify_palette ~= nil and type(vim.g.on_nordify_palette) == "function" then
+    vim.g.on_nordify_palette(palette)
 end
 
 return palette
