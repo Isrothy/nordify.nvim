@@ -103,7 +103,7 @@ function M.setup(colors, config)
     local cache = config.cache and utils.cache.read()
 
     local inputs = {
-        colors = colors:internal(),
+        colors = colors,
         plugins = names,
         version = M.version,
         opts = config,

@@ -5,20 +5,20 @@ M.url = "https://github.com/kyazdani42/nvim-tree.lua"
 ---@type Nordify.HighlightsFn
 function M.get(c, config)
     return {
-        NvimTreeNormal = { fg = c.snow_storm.origin },
-        NvimTreeWinSeparator = { fg = config.borders and c.polar_night.bright or c.none },
-        NvimTreeNormalNC = { fg = c.snow_storm.origin },
-        NvimTreeRootFolder = { fg = c.snow_storm.origin, bold = true },
-        NvimTreeGitDirty = { fg = c.aurora.yellow },
-        NvimTreeGitNew = { fg = c.aurora.green },
-        NvimTreeGitDeleted = { fg = c.aurora.red },
-        NvimTreeGitIgnored = { fg = c.polar_night.light },
+        NvimTreeNormal = { fg = c.fg0 },
+        NvimTreeWinSeparator = { fg = config.borders and c.border0 or c.none },
+        NvimTreeNormalNC = { fg = c.fg0 },
+        NvimTreeRootFolder = { fg = c.fg0, bold = true },
+        NvimTreeGitDirty = { fg = c.git_change },
+        NvimTreeGitNew = { fg = c.git_add },
+        NvimTreeGitDeleted = { fg = c.git_delete },
+        NvimTreeGitIgnored = { fg = c.git_ignore },
         NvimTreeSpecialFile = { fg = c.aurora.yellow, underline = true },
-        NvimTreeIndentMarker = { fg = c.frost.artic_water },
-        NvimTreeImageFile = { fg = c.snow_storm.origin },
-        NvimTreeSymlink = { fg = c.frost.artic_water },
-        NvimTreeFolderIcon = { fg = c.frost.artic_water },
-        NvimTreeOpenedFolderName = { fg = c.snow_storm.origin },
+        NvimTreeIndentMarker = { fg = c.ac1 },
+        NvimTreeImageFile = { fg = c.fg0 },
+        NvimTreeSymlink = { fg = c.ac1 },
+        NvimTreeFolderIcon = { fg = c.ac1 },
+        NvimTreeOpenedFolderName = { fg = c.fg0 },
     }
 end
 

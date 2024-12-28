@@ -4,9 +4,6 @@ local M = {}
 ---@field groups vim.api.keyset.highlight
 ---@field inputs table
 
-M.bg = require("nordify.palette").polar_night.origin
-M.fg = require("nordify.palette").snow_storm.origin
-
 local uv = vim.uv or vim.loop
 
 ---@param c Nordify.Palette
@@ -14,7 +11,7 @@ local uv = vim.uv or vim.loop
 ---@param color string
 ---@return vim.api.keyset.highlight
 M.make_diff = function(c, config, color)
-    return { fg = color, bg = c.polar_night.bright, reverse = config.diff.mode ~= "fg" }
+    return { fg = color, bg = c.bg0, reverse = config.diff.mode ~= "fg" }
 end
 
 ---@param c Nordify.Palette
@@ -23,7 +20,7 @@ M.make_transparent_bg = function(c, config)
     if config.transparent then
         return c.none
     end
-    return c.polar_night.origin
+    return c.bg0
 end
 
 ---@param color string

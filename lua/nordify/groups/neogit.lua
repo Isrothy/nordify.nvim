@@ -5,19 +5,19 @@ M.url = "https://github.com/TimUntersberger/neogit"
 ---@type Nordify.HighlightsFn
 M.get = function(c)
     return {
-        NeogitDiffAdd = { fg = c.aurora.green, bg = c.polar_night.bright },
-        NeogitDiffAddHighlight = { fg = c.aurora.green, bg = c.polar_night.bright },
-        NeogitDiffChange = { fg = c.aurora.yellow, bg = c.polar_night.bright },
-        NeogitDiffDelete = { fg = c.aurora.red, bg = c.polar_night.bright },
-        NeogitDiffDeleteHighlight = { fg = c.aurora.red, bg = c.polar_night.bright },
-        NeogitDiffText = { fg = c.frost.artic_water, bg = c.polar_night.bright },
-        NeogitContextHighlight = { fg = c.frost.artic_water, bg = c.polar_night.bright },
-        NeogitDiffContextHighlight = { fg = c.frost.artic_water, bg = c.polar_night.bright },
-        NeogitHunkHeader = { fg = c.snow_storm.origin, bg = c.polar_night.brightest },
-        NeogitDiffAddCursor = { fg = c.aurora.green, bg = c.polar_night.origin },
-        NeogitDiffDeleteCursor = { fg = c.aurora.red, bg = c.polar_night.origin },
-        NeogitDiffContext = { fg = c.frost.artic_water, bg = c.polar_night.origin },
-        NeogitDiffContextCursor = { fg = c.frost.artic_water, bg = c.polar_night.origin },
+        NeogitDiffAdd = { fg = c.git_add, bg = c.bg1 },
+        NeogitDiffAddHighlight = { fg = c.git_add, bg = c.bg1 },
+        NeogitDiffChange = { fg = c.git_change, bg = c.bg1 },
+        NeogitDiffDelete = { fg = c.git_delete, bg = c.bg1 },
+        NeogitDiffDeleteHighlight = { fg = c.git_delete, bg = c.bg1 },
+        NeogitDiffText = { fg = c.git_text, bg = c.bg1 },
+        NeogitContextHighlight = { fg = c.git_text, bg = c.bg1 },
+        NeogitDiffContextHighlight = { fg = c.git_text, bg = c.bg1 },
+        NeogitHunkHeader = { fg = c.fg0, bg = c.bg2 },
+        NeogitDiffAddCursor = { fg = c.git_add, bg = c.bg0 },
+        NeogitDiffDeleteCursor = { fg = c.git_delete, bg = c.bg0 },
+        NeogitDiffContext = { fg = c.git_text, bg = c.bg0 },
+        NeogitDiffContextCursor = { fg = c.git_text, bg = c.bg0 },
     }
 end
 

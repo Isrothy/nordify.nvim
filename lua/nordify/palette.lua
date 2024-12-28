@@ -23,132 +23,166 @@
 ---@field green string alias for nord 14
 ---@field purple string alias for nord 15
 
----@class Nordify.InternalPalette
----@field nord0 string
----@field nord1 string
----@field nord2 string
----@field nord3 string
----@field nord3_bright string
----@field nord4 string
----@field nord5 string
----@field nord6 string
----@field nord7 string
----@field nord8 string
----@field nord9 string
----@field nord10 string
----@field nord11 string
----@field nord12 string
----@field nord13 string
----@field nord14 string
----@field nord15 string
-local internalPalette = {
-    nord0 = "#2E3440",
-    nord1 = "#3B4252",
-    nord2 = "#434C5E",
-    nord3 = "#4C566A",
-    nord3_bright = "#616E88",
-    nord4 = "#D8DEE9",
-    nord5 = "#E5E9F0",
-    nord6 = "#ECEFF4",
-    nord7 = "#8FBCBB",
-    nord8 = "#88C0D0",
-    nord9 = "#81A1C1",
-    nord10 = "#5E81AC",
-    nord11 = "#BF616A",
-    nord12 = "#D08770",
-    nord13 = "#EBCB8B",
-    nord14 = "#A3BE8C",
-    nord15 = "#B48EAD",
-    none = "NONE",
-}
-
----@class Nordify.Palette: Nordify.InternalPalette
+---@class Nordify.Palette.Colors
 ---@field polar_night Nordify.Palette.PolarNight
 ---@field snow_storm Nordify.Palette.SnowStorm
 ---@field frost Nordify.Palette.Frost
 ---@field aurora Nordify.Palette.Aurora
----@field internal fun():Nordify.InternalPalette
+---@field none string
+
+local colors = {
+    polar_night = {
+        origin = "#2E3440", -- Nord 0
+        bright = "#3B4252", -- Nord 1
+        brighter = "#434C5E", -- Nord 2
+        brightest = "#4C566A", -- Nord 3
+        light = "#616E88", -- Nord 3 bright
+    },
+    snow_storm = {
+        origin = "#D8DEE9", -- Nord 4
+        brighter = "#E5E9F0", -- Nord 5
+        brightest = "#ECEFF4", -- Nord 6
+    },
+    frost = {
+        polar_water = "#8FBCBB", -- Nord 7
+        ice = "#88C0D0", -- Nord 8
+        artic_water = "#81A1C1", -- Nord 9
+        artic_ocean = "#5E81AC", -- Nord 10
+    },
+    aurora = {
+        red = "#BF616A", -- Nord 11
+        orange = "#D08770", -- Nord 12
+        yellow = "#EBCB8B", -- Nord 13
+        green = "#A3BE8C", -- Nord 14
+        purple = "#B48EAD", -- Nord 15
+    },
+    none = "NONE",
+}
+
+---@class Nordify.Palette: Nordify.Palette.Colors
+---@field bg0 string
+---@field bg1 string
+---@field bg2 string
+---@field bg3 string
+---@field bg4 string
+---
+---@field fg0 string
+---@field fg1 string
+---@field fg2 string
+---@field fg3 string
+---@field fg4 string
+---@field fg5 string
+---@field fg6 string
+---
+---@field border0 string
+---@field border1 string
+---
+---@field ac0 string
+---@field ac1 string
+---
+---@field search string
+---
+---@field error string
+---@field warning string
+---@field info string
+---@field hint string
+---@field ok string
+---
+---@field git_add string
+---@field git_change string
+---@field git_delete string
+---@field git_text string
+---@field git_ignore string
 
 ---@type Nordify.Palette
----@diagnostic disable-next-line: missing-fields
-local palette = {}
+local dark = vim.tbl_deep_extend("error", colors, {
+    bg0 = colors.polar_night.origin,
+    bg1 = colors.polar_night.bright,
+    bg2 = colors.polar_night.brighter,
+    bg3 = colors.polar_night.brightest,
+    bg4 = colors.polar_night.light,
 
-setmetatable(palette, {
-    __index = function(_, key)
-        if internalPalette[key] then
-            return internalPalette[key]
-        end
-    end,
-    __newindex = function(_, key, value)
-        if internalPalette[key] then
-            internalPalette[key] = value
-        else
-            rawset(palette, key, value)
-        end
-    end,
+    fg0 = colors.snow_storm.origin,
+    fg1 = colors.snow_storm.brighter,
+    fg2 = colors.snow_storm.brightest,
+    fg3 = colors.polar_night.light,
+    fg4 = colors.polar_night.brightest,
+    fg5 = colors.polar_night.brighter,
+    fg6 = colors.polar_night.bright,
+
+    border0 = colors.polar_night.bright,
+    border1 = colors.polar_night.brightest,
+
+    ac0 = colors.frost.ice,
+    ac1 = colors.frost.artic_water,
+
+    search = colors.frost.ice,
+
+    error = colors.aurora.red,
+    warning = colors.aurora.yellow,
+    info = colors.frost.ice,
+    hint = colors.frost.artic_water,
+    ok = colors.aurora.green,
+
+    git_add = colors.aurora.yellow,
+    git_change = colors.aurora.green,
+    git_delete = colors.aurora.red,
+    git_text = colors.frost.artic_water,
+    git_ignore = colors.polar_night.light,
 })
 
----@diagnostic disable-next-line: missing-fields
-palette.polar_night = {}
----@diagnostic disable-next-line: missing-fields
-palette.snow_storm = {}
----@diagnostic disable-next-line: missing-fields
-palette.frost = {}
----@diagnostic disable-next-line: missing-fields
-palette.aurora = {}
+---@type Nordify.Palette
+local light = vim.tbl_deep_extend("error", colors, {
+    editor_background = colors.snow_storm.brightest,
+    editor_foreground = colors.polar_night.origin,
 
-local function set_alias(table, mapping)
-    setmetatable(table, {
-        __index = function(_, key)
-            local nord_key = mapping[key]
-            return nord_key and palette["nord" .. nord_key]
-        end,
-        __newindex = function(_, key, value)
-            local nord_key = mapping[key]
-            if nord_key then
-                palette["nord" .. nord_key] = value
-            else
-                rawset(table, key, value)
-            end
-        end,
-    })
+    ui_background = colors.snow_storm.brighter,
+    ui_foreground = colors.polar_night.origin,
+
+    popup_background = colors.snow_storm.origin,
+    popup_foreground = colors.polar_night.origin,
+
+    border_primary = colors.snow_storm.brighter,
+    border_secondary = colors.polar_night.bright,
+
+    line_number_active = colors.polar_night.origin,
+    line_number_inactive = colors.polar_night.bright,
+
+    cursor_line_background = colors.snow_storm.brighter,
+    cursor_column_background = colors.snow_storm.brighter,
+
+    search_primary = colors.frost.polar_water,
+    search_secondary = colors.frost.artic_water,
+
+    visual_selection = colors.snow_storm.origin,
+
+    indent_guide = colors.snow_storm.origin,
+    whitespace = colors.snow_storm.origin,
+
+    foldtext = colors.polar_night.brighter,
+
+    menu_selection = colors.snow_storm.origin,
+    menu_background = colors.snow_storm.brighter,
+    menu_foreground = colors.polar_night.origin,
+
+    diagnostic_error = colors.aurora.red,
+    diagnostic_warning = colors.aurora.yellow,
+    diagnostic_info = colors.frost.polar_water,
+    diagnostic_hint = colors.frost.artic_water,
+
+    diff_add = colors.aurora.yellow,
+    diff_change = colors.aurora.green,
+    diff_delete = colors.aurora.red,
+})
+
+---@type table<Nordify.Theme, Nordify.Palette>
+local palettes = {
+    dark = dark,
+    light = light,
+}
+
+if vim.g.on_nordify_palettes ~= nil and type(vim.g.on_nordify_palettes) == "function" then
+    vim.g.on_nordify_palette(colors)
 end
 
-set_alias(palette.polar_night, {
-    origin = "0",
-    bright = "1",
-    brighter = "2",
-    brightest = "3",
-    light = "3_bright",
-})
-
-set_alias(palette.snow_storm, {
-    origin = "4",
-    brighter = "5",
-    brightest = "6",
-})
-
-set_alias(palette.frost, {
-    polar_water = "7",
-    ice = "8",
-    artic_water = "9",
-    artic_ocean = "10",
-})
-
-set_alias(palette.aurora, {
-    red = "11",
-    orange = "12",
-    yellow = "13",
-    green = "14",
-    purple = "15",
-})
-
-function palette:internal()
-    return internalPalette
-end
-
-if vim.g.on_nordify_palette ~= nil and type(vim.g.on_nordify_palette) == "function" then
-    vim.g.on_nordify_palette(palette)
-end
-
-return palette
+return palettes

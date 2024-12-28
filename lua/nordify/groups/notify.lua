@@ -6,27 +6,27 @@ M.url = "https://github.com/rcarriga/nvim-notify"
 function M.get(c)
     local utils = require("nordify.utils")
     return {
-        NotifyERRORBorder = { fg = utils.darken(c, c.aurora.red, 0.5) },
-        NotifyERRORIcon = { fg = c.aurora.red },
-        NotifyERRORTitle = { fg = c.aurora.red },
+        NotifyERRORBorder = { fg = utils.darken(c, c.error, 0.5) },
+        NotifyERRORIcon = { fg = c.error },
+        NotifyERRORTitle = { fg = c.error },
 
-        NotifyWARNBorder = { fg = utils.darken(c, c.aurora.yellow, 0.5) },
-        NotifyWARNIcon = { fg = c.aurora.yellow },
-        NotifyWARNTitle = { fg = c.aurora.yellow },
+        NotifyWARNBorder = { fg = utils.darken(c, c.warning, 0.5) },
+        NotifyWARNIcon = { fg = c.warning },
+        NotifyWARNTitle = { fg = c.warning },
 
-        NotifyINFOBorder = { fg = utils.darken(c, c.frost.artic_water, 0.5) },
-        NotifyINFOIcon = { fg = c.frost.artic_water },
-        NotifyINFOTitle = { fg = c.frost.artic_water },
+        NotifyINFOBorder = { fg = utils.darken(c, c.info, 0.5) },
+        NotifyINFOIcon = { fg = c.info },
+        NotifyINFOTitle = { fg = c.info },
 
-        NotifyDEBUGBorder = { fg = c.polar_night.bright },
-        NotifyDEBUGIcon = { fg = c.snow_storm.origin },
-        NotifyDEBUGTitle = { fg = c.snow_storm.origin },
+        NotifyDEBUGBorder = { fg = c.border0 },
+        NotifyDEBUGIcon = { fg = c.fg0 },
+        NotifyDEBUGTitle = { fg = c.fg0 },
 
         NotifyTRACEBorder = { fg = utils.darken(c, c.aurora.purple, 0.5) },
         NotifyTRACEIcon = { fg = c.aurora.purple },
         NotifyTRACETitle = { fg = c.aurora.purple },
 
-        NotifyBackground = { bg = c.polar_night.origin },
+        NotifyBackground = { bg = c.bg0 },
     }
 end
 

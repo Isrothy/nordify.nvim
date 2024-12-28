@@ -6,8 +6,8 @@ M.url = "https://github.com/OXY2DEV/markview.nvim"
 M.get = function(c)
     local utils = require("nordify.utils")
     return {
-        MarkviewCode = { bg = c.polar_night.bright },
-        MarkviewInlineCode = { bg = c.polar_night.bright },
+        MarkviewCode = { bg = c.bg1 },
+        MarkviewInlineCode = { bg = c.bg1 },
 
         MarkviewHeading1 = { fg = c.aurora.green, bg = utils.darken(c, c.aurora.green, 0.1) },
         MarkviewHeading2 = { fg = c.aurora.yellow, bg = utils.darken(c, c.aurora.yellow, 0.1) },

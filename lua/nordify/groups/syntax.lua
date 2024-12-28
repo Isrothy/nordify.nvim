@@ -9,17 +9,17 @@ M.get = function(c, config)
         Boolean = { fg = c.frost.artic_water }, --  a boolean constant: TRUE, false
         Character = { fg = c.aurora.green }, --  a character constant: 'c', '\n'
         Conditional = { fg = c.frost.artic_water }, --  if, then, else, endif, switch, etc.
-        Constant = { fg = c.snow_storm.origin }, -- (preferred) any constant
-        Comment = vim.tbl_extend("force", { fg = c.polar_night.light }, config.styles.comments), -- any comment
-        Debug = { fg = c.snow_storm.origin }, --    debugging statements
+        Constant = { fg = c.fg0 }, -- (preferred) any constant
+        Comment = vim.tbl_extend("force", { fg = c.fg3 }, config.styles.comments), -- any comment
+        Debug = { fg = c.fg0 }, --    debugging statements
         Define = { fg = c.frost.artic_water }, --   preprocessor #define
-        Delimiter = { fg = c.snow_storm.brightest }, --  character that needs attention
-        -- Error = { fg = c.snow_storm.origin, bg = c.aurora.red }, -- (preferred) any erroneous construct
-        Error = utils.make_error(config, c.aurora.red), -- (preferred) any erroneous construct
+        Delimiter = { fg = c.fg2 }, --  character that needs attention
+        -- Error = { fg = c.fg0, bg = c.aurora.red }, -- (preferred) any erroneous construct
+        Error = utils.make_error(config, c.error), -- (preferred) any erroneous construct
         Exception = { fg = c.frost.artic_water }, --  try, catch, throw
         Float = { fg = c.aurora.purple }, --    a floating point constant: 2.3e10
         Function = vim.tbl_extend("force", { fg = c.frost.ice }, config.styles.functions), -- function name (also: methods for classes)
-        Identifier = vim.tbl_extend("force", { fg = c.snow_storm.origin }, config.styles.variables), -- (preferred) any variable name
+        Identifier = vim.tbl_extend("force", { fg = c.fg0 }, config.styles.variables), -- (preferred) any variable name
         Include = { fg = c.frost.artic_water }, --  preprocessor #include
         Italic = { italic = true },
         Keyword = vim.tbl_extend("force", { fg = c.frost.artic_water }, config.styles.keywords), --  any other keyword
@@ -30,14 +30,14 @@ M.get = function(c, config)
         PreCondit = { link = "PreProc" }, --  preprocessor #if, #else, #endif, etc.
         PreProc = { fg = c.frost.artic_water }, -- (preferred) generic Preprocessor
         Repeat = { fg = c.frost.artic_water }, --   for, do, while, etc.
-        Special = { fg = c.snow_storm.origin }, -- (preferred) any special symbol
+        Special = { fg = c.fg0 }, -- (preferred) any special symbol
         SpecialChar = { fg = c.aurora.yellow }, --  special character in a constant
         SpecialComment = { fg = c.frost.ice }, -- special things inside a comment
         Statement = { fg = c.frost.artic_water }, -- (preferred) any statement
         StorageClass = { fg = c.frost.artic_water }, -- static, register, volatile, etc.
         String = { fg = c.aurora.green }, --   a string constant: "this is a string"
         Structure = { fg = c.frost.artic_water }, --  struct, union, enum, etc.
-        Tag = { fg = c.snow_storm.origin }, --    you can use CTRL-] on this
+        Tag = { fg = c.fg0 }, --    you can use CTRL-] on this
         Todo = { fg = c.aurora.yellow, bg = c.none }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
         Type = { fg = c.frost.artic_water }, -- (preferred) int, long, char, etc.
         Typedef = { fg = c.frost.artic_water }, --  A typedef
@@ -50,7 +50,7 @@ M.get = function(c, config)
 
         markdownHeadingDelimiter = { fg = c.frost.polar_water },
         markdownCode = { fg = c.frost.polar_water },
-        markdownCodeBlock = { fg = c.snow_storm.origin },
+        markdownCodeBlock = { fg = c.fg0 },
         markdownH1 = { fg = c.frost.ice, bold = true },
         markdownH2 = { fg = c.frost.ice },
         markdownLinkText = { fg = c.frost.ice, underline = true },
@@ -58,7 +58,7 @@ M.get = function(c, config)
         markdownFootnote = { fg = c.frost.polar_water },
         markdownId = { fg = c.frost.polar_water },
         markdownIdDeclaration = { fg = c.frost.polar_water },
-        markdownUrl = { fg = c.snow_storm.origin },
+        markdownUrl = { fg = c.fg0 },
 
         debugPC = { bg = c.frost.artic_water }, -- used for highlighting the current line in terminal-debug
         debugBreakpoint = { bg = c.frost.artic_ocean, fg = c.frost.artic_water }, -- used for breakpoint colors in terminal-debug

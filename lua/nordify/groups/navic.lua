@@ -33,7 +33,7 @@ M.get = function(c)
         NavicIconsOperator = { link = "@lsp.type.operator" },
         NavicIconsTypeParameter = { link = "@lsp.type.typeParameter" },
         NavicText = { link = "@text" },
-        NavicSeparator = { fg = c.frost.artic_water, bg = c.polar_night.brighter },
+        NavicSeparator = { fg = c.ac1, bg = c.bg2 },
     }
 end
 

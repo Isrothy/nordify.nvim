@@ -6,55 +6,54 @@ M.url = "https://github.com/romgrk/barbar.nvim"
 
 ---@type Nordify.HighlightsFn
 function M.get(c, config)
-    local current_hi = vim.tbl_extend("force", { bg = c.polar_night.brighter }, config.styles.bufferline.current)
-    local bg = c.polar_night.origin
+    local current_hi = vim.tbl_extend("force", { bg = c.bg2 }, config.styles.bufferline.current)
     return {
-        BufferTabpageFill = { bg = bg, fg = c.polar_night.origin },
+        BufferTabpageFill = { bg = c.bg0, fg = c.fg0 },
         BufferCurrent = current_hi,
         BufferCurrentIndex = current_hi,
         BufferCurrentMod = vim.tbl_extend(
             "force",
-            { bg = c.polar_night.brighter, fg = c.aurora.yellow },
+            { bg = c.bg2, fg = c.aurora.yellow },
             config.styles.bufferline.modified
         ),
         BufferCurrentSign = vim.tbl_extend("force", current_hi, { fg = c.frost.artic_water }),
         BufferCurrentTarget = vim.tbl_extend(
             "force",
-            { bg = c.polar_night.brighter, fg = c.aurora.red, bold = true },
+            { bg = c.bg2, fg = c.aurora.red, bold = true },
             config.styles.bufferline.current
         ),
-        BufferCurrentHINT = vim.tbl_extend("force", current_hi, { fg = c.frost.artic_water }),
-        BufferCurrentINFO = vim.tbl_extend("force", current_hi, { fg = c.frost.ice }),
-        BufferCurrentWARN = vim.tbl_extend("force", current_hi, { fg = c.aurora.yellow }),
-        BufferCurrentERROR = vim.tbl_extend("force", current_hi, { fg = c.aurora.red }),
-        BufferVisible = { bg = c.polar_night.bright },
-        BufferVisibleIndex = { bg = c.polar_night.bright },
+        BufferCurrentHINT = vim.tbl_extend("force", current_hi, { fg = c.hint }),
+        BufferCurrentINFO = vim.tbl_extend("force", current_hi, { fg = c.info }),
+        BufferCurrentWARN = vim.tbl_extend("force", current_hi, { fg = c.warning }),
+        BufferCurrentERROR = vim.tbl_extend("force", current_hi, { fg = c.error }),
+        BufferVisible = { bg = c.bg1 },
+        BufferVisibleIndex = { bg = c.bg1 },
         BufferVisibleMod = vim.tbl_extend(
             "force",
-            { bg = c.polar_night.bright, fg = c.aurora.yellow },
+            { bg = c.bg1, fg = c.aurora.yellow },
             config.styles.bufferline.modified
         ),
-        BufferVisibleSign = { bg = c.polar_night.bright, fg = c.frost.artic_water },
-        BufferVisibleTarget = { bg = c.polar_night.bright, fg = c.aurora.red, bold = true },
-        BufferVisibleHINT = { bg = c.polar_night.bright, fg = c.frost.artic_water },
-        BufferVisibleINFO = { bg = c.polar_night.bright, fg = c.frost.ice },
-        BufferVisibleWARN = { bg = c.polar_night.bright, fg = c.aurora.yellow },
-        BufferVisibleERROR = { bg = c.polar_night.bright, fg = c.aurora.red },
-        BufferInactive = { bg = bg, fg = c.polar_night.light },
-        BufferInactiveIndex = { bg = bg, fg = c.polar_night.light },
+        BufferVisibleSign = { bg = c.bg1, fg = c.frost.artic_water },
+        BufferVisibleTarget = { bg = c.bg1, fg = c.aurora.red, bold = true },
+        BufferVisibleHINT = { bg = c.bg1, fg = c.hint },
+        BufferVisibleINFO = { bg = c.bg1, fg = c.info },
+        BufferVisibleWARN = { bg = c.bg1, fg = c.warning },
+        BufferVisibleERROR = { bg = c.bg1, fg = c.error },
+        BufferInactive = { bg = c.bg0, fg = c.fg3 },
+        BufferInactiveIndex = { bg = c.bg0, fg = c.fg3 },
         BufferInactiveMod = vim.tbl_extend(
             "force",
-            { bg = bg, fg = utils.darken(c, c.aurora.yellow, 0.4) },
+            { bg = c.bg0, fg = utils.darken(c, c.aurora.yellow, 0.4) },
             config.styles.bufferline.modified
         ),
-        BufferInactiveSign = { bg = bg, fg = c.polar_night.origin },
-        BufferInactiveTarget = { bg = bg, fg = c.aurora.red, bold = true },
-        BufferInactiveHINT = { bg = bg, fg = utils.darken(c, c.frost.artic_water, 0.4) },
-        BufferInactiveINFO = { bg = bg, fg = utils.darken(c, c.frost.ice, 0.4) },
-        BufferInactiveWARN = { bg = bg, fg = utils.darken(c, c.aurora.yellow, 0.4) },
-        BufferInactiveERROR = { bg = bg, fg = utils.darken(c, c.aurora.red, 0.4) },
-        BufferTabpages = { bg = bg, fg = c.none },
-        BufferTabpage = { bg = bg },
+        BufferInactiveSign = { bg = c.bg0, fg = c.bg0 },
+        BufferInactiveTarget = { bg = c.bg0, fg = c.aurora.red, bold = true },
+        BufferInactiveHINT = { bg = c.bg0, fg = utils.darken(c, c.hint, 0.4) },
+        BufferInactiveINFO = { bg = c.bg0, fg = utils.darken(c, c.info, 0.4) },
+        BufferInactiveWARN = { bg = c.bg0, fg = utils.darken(c, c.warning, 0.4) },
+        BufferInactiveERROR = { bg = c.bg0, fg = utils.darken(c, c.error, 0.4) },
+        BufferTabpages = { bg = c.bg0, fg = c.none },
+        BufferTabpage = { bg = c.bg0 },
     }
 end
 

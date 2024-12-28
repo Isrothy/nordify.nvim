@@ -5,7 +5,7 @@ M.url = "https://github.com/Exafunction/codeium.nvim"
 ---@type Nordify.HighlightsFn
 M.get = function(c)
     return {
-        CodeiumSuggestion = { fg = c.polar_night.light },
+        CodeiumSuggestion = { fg = c.fg3 },
     }
 end
 
