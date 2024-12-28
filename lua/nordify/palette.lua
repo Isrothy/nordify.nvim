@@ -124,8 +124,8 @@ local dark = vim.tbl_deep_extend("error", colors, {
     hint = colors.frost.artic_water,
     ok = colors.aurora.green,
 
-    git_add = colors.aurora.yellow,
-    git_change = colors.aurora.green,
+    git_add = colors.aurora.green,
+    git_change = colors.aurora.yellow,
     git_delete = colors.aurora.red,
     git_text = colors.frost.artic_water,
     git_ignore = colors.polar_night.light,

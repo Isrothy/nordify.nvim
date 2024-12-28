@@ -8,7 +8,7 @@ M.url = "https://github.com/romgrk/barbar.nvim"
 function M.get(c, config)
     local current_hi = vim.tbl_extend("force", { bg = c.bg2 }, config.styles.bufferline.current)
     return {
-        BufferTabpageFill = { bg = c.bg0, fg = c.fg0 },
+        BufferTabpageFill = { bg = c.bg0, fg = c.bg0 },
         BufferCurrent = current_hi,
         BufferCurrentIndex = current_hi,
         BufferCurrentMod = vim.tbl_extend(

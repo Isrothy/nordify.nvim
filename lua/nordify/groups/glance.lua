@@ -15,8 +15,8 @@ M.get = function(c)
         GlancePreviewLineNr = { link = "LineNr" },
 
         GlanceWinBarFilename = { fg = c.frost.polar_water, bg = c.bg2 },
-        GlanceWinBarFilepath = { fg = c.fg1, bg = c.bg2 },
-        GlanceWinBarTitle = { fg = c.fg1, bg = c.bg2 },
+        GlanceWinBarFilepath = { fg = c.fg0, bg = c.bg2 },
+        GlanceWinBarTitle = { fg = c.fg0, bg = c.bg2 },
 
         GlanceListNormal = { bg = c.bg1 },
         GlanceListFilename = { fg = c.frost.polar_water },

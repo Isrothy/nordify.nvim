@@ -11,7 +11,7 @@ local uv = vim.uv or vim.loop
 ---@param color string
 ---@return vim.api.keyset.highlight
 M.make_diff = function(c, config, color)
-    return { fg = color, bg = c.bg0, reverse = config.diff.mode ~= "fg" }
+    return { fg = color, bg = c.bg1, reverse = config.diff.mode ~= "fg" }
 end
 
 ---@param c Nordify.Palette

@@ -13,7 +13,7 @@ M.get = function(c)
         NeogitDiffText = { fg = c.git_text, bg = c.bg1 },
         NeogitContextHighlight = { fg = c.git_text, bg = c.bg1 },
         NeogitDiffContextHighlight = { fg = c.git_text, bg = c.bg1 },
-        NeogitHunkHeader = { fg = c.fg0, bg = c.bg2 },
+        NeogitHunkHeader = { fg = c.fg0, bg = c.bg3 },
         NeogitDiffAddCursor = { fg = c.git_add, bg = c.bg0 },
         NeogitDiffDeleteCursor = { fg = c.git_delete, bg = c.bg0 },
         NeogitDiffContext = { fg = c.git_text, bg = c.bg0 },

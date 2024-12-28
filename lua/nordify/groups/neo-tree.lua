@@ -5,18 +5,18 @@ M.url = "https://github.com/kyazdani42/nvim-tree.lua"
 ---@type Nordify.HighlightsFn
 function M.get(c)
     return {
-        NeoTreeDimText = { fg = c.fg2 },
+        NeoTreeDimText = { fg = c.fg4 },
         NeoTreeDirectoryIcon = { fg = c.ac1 },
         NeoTreeDirectoryName = { fg = c.fg0 },
         NeoTreeDotfile = { fg = c.fg3 },
-        NeoTreeFadeText1 = { fg = c.fg2 },
-        NeoTreeFadeText2 = { fg = c.fg1 },
+        NeoTreeFadeText1 = { fg = c.fg4 },
+        NeoTreeFadeText2 = { fg = c.fg5 },
         NeoTreeFileIcon = { fg = c.fg0 },
         NeoTreeFileName = { fg = c.fg0 },
         NeoTreeGitUnstaged = { fg = c.aurora.orange, italic = true },
         NeoTreeGitUntracked = { fg = c.aurora.green, italic = true },
         NeoTreeGitConflict = { fg = c.aurora.red },
-        NeoTreeIndentMarker = { fg = c.fg1 },
+        NeoTreeIndentMarker = { fg = c.fg5 },
         NeoTreeMessage = { fg = c.fg4, italic = true },
         NeoTreeModified = { fg = c.aurora.yellow },
         NeoTreeRootName = { fg = c.fg0, bold = true },
