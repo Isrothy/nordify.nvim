@@ -2,19 +2,22 @@ name: panvimdoc
 on:
   push:
     branches: [main]
+    paths:
+      - README.md
+      - .github/workflows/panvimdoc.yml
+permissions:
+  contents: write
 jobs:
   docs:
     runs-on: ubuntu-latest
     name: pandoc to vimdoc
     steps:
       - uses: actions/checkout@v2
-      - name: panvimdoc
-        uses: kdheepak/panvimdoc@main
+      - uses: kdheepak/panvimdoc@main
         with:
-          vimdoc: Nordify
-          description: Nord theme for Neovim
-          version: "NVIM v0.1.0"
+          vimdoc: ${{ github.event.repository.name }}
+          version: "NVIM v0.10.*"
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "chore: auto generate docs"
+          commit_message: "Auto generate docs"
           branch: ${{ github.head_ref }}
