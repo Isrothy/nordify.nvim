@@ -1,9 +1,7 @@
 name: panvimdoc
-
 on:
   push:
     branches: [main]
-
 jobs:
   docs:
     runs-on: ubuntu-latest
@@ -13,10 +11,10 @@ jobs:
       - name: panvimdoc
         uses: kdheepak/panvimdoc@main
         with:
-          vimdoc: nord-nvim
+          vimdoc: Nordify
           description: Nord theme for Neovim
-          version: 'NVIM v0.8.0'
+          version: "NVIM v0.1.0"
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'chore: auto generate docs'
+          commit_message: "chore: auto generate docs"
           branch: ${{ github.head_ref }}
