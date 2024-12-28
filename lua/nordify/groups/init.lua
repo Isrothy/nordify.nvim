@@ -19,7 +19,6 @@ M.plugins = {
     ["gitgraph.nvim"] = "gitgraph",
     ["glance.nvim"] = "glance",
     ["highlight-undo.nvim"] = "highlight-undo",
-    ["indent-blankline.nvim"] = "indent-blankline",
     ["leap.nvim"] = "leap",
     ["markview.nvim"] = "markview",
     ["mini.indentscope"] = "mini_indentscope",
