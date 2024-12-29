@@ -41,7 +41,7 @@ M.get = function(c, config)
         QuickFixLine = { fg = c.fg0, bg = c.none, reverse = true }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
         Search = config.search.theme == "vscode" and { fg = c.none, bg = utils.blend(c.search, c.bg0, 0.2) }
             or { fg = c.search, bg = c.none, reverse = true }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-        IncSearch = config.search.theme == "vscode" and { fg = c.fg0, bg = utils.blend( c.search, c.bg0, 0.5) }
+        IncSearch = config.search.theme == "vscode" and { fg = c.fg0, bg = utils.blend(c.search, c.bg0, 0.5) }
             or { fg = c.fg2, bg = c.search }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
         CurSearch = { link = "IncSearch" },
         SpecialKey = { fg = c.fg4 }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
