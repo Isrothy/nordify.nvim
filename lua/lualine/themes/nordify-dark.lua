@@ -1,4 +1,4 @@
-local c = require("nordify.palette")
+local c = require("nordify.palette")["dark"]
 
 local M = {}
 

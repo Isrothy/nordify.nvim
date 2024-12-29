@@ -1,8 +1,11 @@
 local M = {}
 
-M.set_colorscheme = function()
+---@alias Nordify.Theme "dark"|"light"
+
+---@param theme Nordify.Theme
+M.set_colorscheme = function(theme)
     local config = require("nordify.config")
-    local c = require("nordify.palette")
+    local c = require("nordify.palette")[theme]
     local groups = require("nordify.groups").setup(c, config)
 
     vim.cmd([[ highlight clear ]])
@@ -11,7 +14,7 @@ M.set_colorscheme = function()
     end
 
     vim.o.termguicolors = true
-    vim.g.colors_name = "nordify"
+    vim.g.colors_name = "nordify-" .. theme
 
     for group, hl in pairs(groups) do
         vim.api.nvim_set_hl(0, group, hl)
@@ -45,8 +48,6 @@ M.set_colorscheme = function()
         vim.g.terminal_color_6 = c.frost.ice
         vim.g.terminal_color_14 = c.frost.polar_water
     end
-
-    vim.g.colors_name = "nordify"
 end
 
 return M

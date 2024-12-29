@@ -10,7 +10,7 @@ M.get = function(c)
         GitGraphAuthor = { fg = c.aurora.green },
         GitGraphBranchName = { fg = c.aurora.red },
         GitGraphBranchTag = { fg = c.aurora.yellow },
-        GitGraphBranchMsg = { fg = c.snow_storm.origin },
+        GitGraphBranchMsg = { fg = c.fg0 },
         GitGraphBranch1 = { fg = c.frost.artic_ocean },
         GitGraphBranch2 = { fg = c.aurora.green },
         GitGraphBranch3 = { fg = c.aurora.red },

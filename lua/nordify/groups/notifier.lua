@@ -6,7 +6,7 @@ M.url = "https://github.com/vigoux/notifier.nvim"
 M.get = function(c)
     return {
         NotifierTitle = { fg = c.frost.polar_water, bold = true },
-        NotifierContentDim = { fg = c.polar_night.light },
+        NotifierContentDim = { fg = c.fg3 },
     }
 end
 

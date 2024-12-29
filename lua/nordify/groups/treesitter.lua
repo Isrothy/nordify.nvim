@@ -5,8 +5,8 @@ local M = {}
 M.get = function(c, config)
     return {
         -- Misc
-        ["@comment"] = vim.tbl_extend("force", { fg = c.polar_night.light }, config.styles.comments), --  line and block comments
-        ["@error"] = utils.make_error(config, c.aurora.red), --  syntax/parser errors
+        ["@comment"] = vim.tbl_extend("force", { fg = c.fg3 }, config.styles.comments), --  line and block comments
+        ["@error"] = utils.make_error(config, c.error), --  syntax/parser errors
         -- ["@none"]     --  completely disable the highlight
         ["@keyword.directive"] = { fg = c.frost.artic_water }, --  various preprocessor directives & shebangs
         ["@preproc"] = { link = "@keyword.directive" }, -- @deprecated
@@ -15,7 +15,7 @@ M.get = function(c, config)
         ["@operator"] = { fg = c.frost.artic_water }, --  symbolic operators (e.g. `+` / `*`)
 
         -- Punctuation
-        ["@punctuation.delimiter"] = { fg = c.snow_storm.brightest }, --  delimiters (e.g. `;` / `.` / `,`)
+        ["@punctuation.delimiter"] = { fg = c.fg2 }, --  delimiters (e.g. `;` / `.` / `,`)
         ["@punctuation.bracket"] = { fg = c.frost.ice }, --  brackets (e.g. `()` / `{}` / `[]`)
         ["@markup.list"] = { fg = c.frost.artic_water }, --  special symbols (e.g. `{}` in string interpolation)
         ["@punctuation.special"] = { link = "@markup.list" }, -- @deprecated
@@ -56,7 +56,7 @@ M.get = function(c, config)
         ["@conditional"] = { link = "@keyword.conditional" }, -- @deprecated
         ["@keyword.repeat"] = vim.tbl_extend("force", { fg = c.frost.artic_water }, config.styles.keywords), --  keywords related to loops (e.g. `for` / `while`)
         ["@repeat"] = { link = "@keyword.repeat" }, -- @deprecated
-        ["@keyword.debug"] = vim.tbl_extend("force", { fg = c.snow_storm.origin }, config.styles.keywords), --  keywords related to debugging
+        ["@keyword.debug"] = vim.tbl_extend("force", { fg = c.fg0 }, config.styles.keywords), --  keywords related to debugging
         ["@debug"] = { link = "@keyword.debug" }, -- @deprecated
         ["@label"] = vim.tbl_extend("force", { fg = c.frost.polar_water }, config.styles.keywords), --  GOTO and other labels (e.g. `label:` in C)
         ["@keyword.import"] = vim.tbl_extend("force", { fg = c.frost.artic_water }, config.styles.keywords), --  keywords for including modules (e.g. `import` / `from` in Python)
@@ -71,24 +71,24 @@ M.get = function(c, config)
         ["@type.qualifier"] = { fg = c.frost.artic_water }, --  type qualifiers (e.g. `const`)
         ["@keyword.storage"] = { fg = c.frost.artic_water }, --  visibility/life-time modifiers
         ["@storageclass"] = { link = "@keyword.storage" }, -- @deprecated
-        ["@attribute"] = { fg = c.snow_storm.origin }, --  attribute annotations (e.g. Python decorators)
-        ["@variable.member"] = { fg = c.snow_storm.origin }, --  object and struct fields
+        ["@attribute"] = { fg = c.fg0 }, --  attribute annotations (e.g. Python decorators)
+        ["@variable.member"] = { fg = c.fg0 }, --  object and struct fields
         ["@field"] = { link = "@field" }, -- @deprecated
-        ["@property"] = { fg = c.snow_storm.origin }, --  similar to `@field`
+        ["@property"] = { fg = c.fg0 }, --  similar to `@field`
 
         -- Identifiers
-        ["@variable"] = vim.tbl_extend("force", { fg = c.snow_storm.origin }, config.styles.variables), --  various variable names
+        ["@variable"] = vim.tbl_extend("force", { fg = c.fg0 }, config.styles.variables), --  various variable names
         ["@variable.builtin"] = { fg = c.frost.artic_water }, --  built-in variable names (e.g. `this`)
-        ["@constant"] = { fg = c.snow_storm.origin }, --  constant identifiers
+        ["@constant"] = { fg = c.fg0 }, --  constant identifiers
         ["@constant.builtin"] = { fg = c.frost.artic_water }, --  built-in constant values
         ["@constant.macro"] = { fg = c.frost.artic_water }, --  constants defined by the preprocessor
-        ["@module"] = { fg = c.snow_storm.origin }, --  modules or namespaces
+        ["@module"] = { fg = c.fg0 }, --  modules or namespaces
         ["@namespace"] = { link = "@module" }, -- @deprecated
-        ["@string.special.symbol"] = { fg = c.snow_storm.origin }, --  symbols or atoms
+        ["@string.special.symbol"] = { fg = c.fg0 }, --  symbols or atoms
         ["@symbol"] = { link = "@string.special.symbol" }, -- @deprecated
 
         -- Text
-        ["@text"] = { fg = c.snow_storm.origin }, -- @deprecated
+        ["@text"] = { fg = c.fg0 }, -- @deprecated
         ["@markup.strong"] = { bold = true }, --  bold text
         ["@text.strong"] = { link = "@markup.strong" }, -- @deprecated
         ["@markup.italic"] = { italic = true }, --  text with emphasis
@@ -115,9 +115,9 @@ M.get = function(c, config)
         ["@text.todo"] = { link = "@comment.todo" }, -- @deprecated
         ["@comment.note"] = { fg = c.frost.artic_water }, --  info notes
         ["@text.note"] = { link = "@comment.note" }, -- @deprecated
-        ["@comment.warning"] = { fg = c.aurora.yellow }, --  warning notes
+        ["@comment.warning"] = { fg = c.warning }, --  warning notes
         ["@text.warning"] = { link = "@comment.warning" }, -- @deprecated
-        ["@comment.error"] = { fg = c.aurora.red }, --  danger/error notes
+        ["@comment.error"] = { fg = c.error }, --  danger/error notes
         ["@text.danger"] = { link = "@comment.error" }, -- @deprecated
         ["@text.diff.add"] = { link = "DiffAdd" }, --  added text (for diff files)
         ["@text.diff.delete"] = { link = "DiffDelete" }, --  deleted text (for diff files)
@@ -140,7 +140,7 @@ M.get = function(c, config)
         -- Language specific
         ["@constant.git_rebase"] = { fg = c.frost.polar_water },
         ["@property.yaml"] = { fg = c.frost.polar_water },
-        ["@text.phpdoc"] = { fg = c.polar_night.light },
+        ["@text.phpdoc"] = { fg = c.fg3 },
         ["@attribute.phpdoc"] = { fg = c.frost.artic_water },
         ["@character.printf"] = { fg = c.aurora.yellow },
     }

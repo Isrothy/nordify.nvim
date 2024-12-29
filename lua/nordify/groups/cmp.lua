@@ -5,9 +5,9 @@ M.url = "https://github.com/hrsh7th/nvim-cmp"
 ---@type Nordify.HighlightsFn
 M.get = function(c, _)
     return {
-        CmpItemAbbrDeprecated = { fg = c.polar_night.light },
-        CmpItemAbbrMatch = { fg = c.frost.ice, bold = true },
-        CmpItemAbbrMatchFuzzy = { fg = c.frost.ice, bold = true },
+        CmpItemAbbrDeprecated = { fg = c.fg3 },
+        CmpItemAbbrMatch = { fg = c.ac0, bold = true },
+        CmpItemAbbrMatchFuzzy = { fg = c.ac0, bold = true },
         CmpItemKind = { fg = c.frost.artic_water },
         CmpItemKindVariable = { fg = c.frost.ice },
         CmpItemKindInterface = { fg = c.frost.ice },
@@ -15,7 +15,7 @@ M.get = function(c, _)
         CmpItemKindFunction = { fg = c.aurora.purple },
         CmpItemKindMethod = { fg = c.aurora.purple },
         CmpItemKindSnippet = { fg = c.aurora.green },
-        CmpItemKindText = { fg = c.snow_storm.origin },
+        CmpItemKindText = { fg = c.fg0 },
     }
 end
 

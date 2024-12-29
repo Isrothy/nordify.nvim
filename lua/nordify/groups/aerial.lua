@@ -5,8 +5,8 @@ M.url = "https://github.com/stevearc/aerial.nvim"
 ---@type Nordify.HighlightsFn
 M.get = function(c)
     return {
-        AerialLine = { bg = c.polar_night.bright },
-        AerialLineNC = { bg = c.polar_night.bright },
+        AerialLine = { bg = c.bg1 },
+        AerialLineNC = { bg = c.bg1 },
 
         AerialArrayIcon = { link = "AerialArray" },
         AerialBooleanIcon = { link = "AerialBoolean" },

@@ -5,10 +5,10 @@ M.url = "https://github.com/folke/which-key.nvim"
 ---@type Nordify.HighlightsFn
 M.get = function(c)
     return {
-        WhichKey = { fg = c.frost.ice, bold = true },
-        WhichKeyGroup = { fg = c.frost.artic_water },
-        WhichKeyDesc = { fg = c.snow_storm.origin },
-        WhichKeyFloat = { bg = c.polar_night.bright },
+        WhichKey = { fg = c.ac0, bold = true },
+        WhichKeyGroup = { fg = c.ac1 },
+        WhichKeyDesc = { fg = c.fg0 },
+        WhichKeyFloat = { bg = c.bg1 },
     }
 end
 
