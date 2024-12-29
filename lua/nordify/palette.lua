@@ -3,12 +3,13 @@
 ---@field bright string alias for nord 1
 ---@field brighter string alias for nord 2
 ---@field brightest string alias for nord 3
----@field light string alias for nord 3 bright
+---@field light string Not in nord palette
 
 ---@class Nordify.Palette.SnowStorm
 ---@field origin string  alias for nord 4
 ---@field brighter string  alias for nord 5
 ---@field brightest string  alias for nord 6
+---@field dark string Not in nord palette
 
 ---@class Nordify.Palette.Frost
 ---@field polar_water string alias for nord 7
@@ -42,6 +43,7 @@ local colors = {
         origin = "#D8DEE9", -- Nord 4
         brighter = "#E5E9F0", -- Nord 5
         brightest = "#ECEFF4", -- Nord 6
+        dark = "#ADB2BA",
     },
     frost = {
         polar_water = "#8FBCBB", -- Nord 7
@@ -64,18 +66,17 @@ local colors = {
 ---@field bg1 string
 ---@field bg2 string
 ---@field bg3 string
----@field bg4 string
 ---
 ---@field fg0 string
 ---@field fg1 string
 ---@field fg2 string
 ---@field fg3 string
 ---@field fg4 string
----@field fg5 string
----@field fg6 string
 ---
 ---@field border0 string
 ---@field border1 string
+---
+---@field nontext string
 ---
 ---@field ac0 string
 ---@field ac1 string
@@ -100,15 +101,14 @@ local dark = vim.tbl_deep_extend("error", colors, {
     bg1 = colors.polar_night.bright,
     bg2 = colors.polar_night.brighter,
     bg3 = colors.polar_night.brightest,
-    bg4 = colors.polar_night.light,
 
     fg0 = colors.snow_storm.origin,
     fg1 = colors.snow_storm.brighter,
     fg2 = colors.snow_storm.brightest,
     fg3 = colors.polar_night.light,
     fg4 = colors.polar_night.brightest,
-    fg5 = colors.polar_night.brighter,
-    fg6 = colors.polar_night.bright,
+
+    nontext = colors.polar_night.brighter,
 
     border0 = colors.polar_night.bright,
     border1 = colors.polar_night.brightest,
@@ -133,46 +133,38 @@ local dark = vim.tbl_deep_extend("error", colors, {
 
 ---@type Nordify.Palette
 local light = vim.tbl_deep_extend("error", colors, {
-    editor_background = colors.snow_storm.brightest,
-    editor_foreground = colors.polar_night.origin,
+    bg0 = colors.snow_storm.brightest,
+    bg1 = colors.snow_storm.brighter,
+    bg2 = colors.snow_storm.origin,
+    bg3 = colors.snow_storm.dark,
 
-    ui_background = colors.snow_storm.brighter,
-    ui_foreground = colors.polar_night.origin,
+    fg0 = colors.polar_night.brighter,
+    fg1 = colors.polar_night.bright,
+    fg2 = colors.polar_night.origin,
+    fg3 = colors.polar_night.light,
+    fg4 = colors.snow_storm.dark,
 
-    popup_background = colors.snow_storm.origin,
-    popup_foreground = colors.polar_night.origin,
+    nontext = colors.polar_night.light,
 
-    border_primary = colors.snow_storm.brighter,
-    border_secondary = colors.polar_night.bright,
+    border0 = colors.polar_night.bright,
+    border1 = colors.polar_night.brightest,
 
-    line_number_active = colors.polar_night.origin,
-    line_number_inactive = colors.polar_night.bright,
+    ac0 = colors.frost.ice,
+    ac1 = colors.frost.artic_water,
 
-    cursor_line_background = colors.snow_storm.brighter,
-    cursor_column_background = colors.snow_storm.brighter,
+    search = colors.frost.ice,
 
-    search_primary = colors.frost.polar_water,
-    search_secondary = colors.frost.artic_water,
+    error = colors.aurora.red,
+    warning = colors.aurora.yellow,
+    info = colors.frost.ice,
+    hint = colors.frost.artic_water,
+    ok = colors.aurora.green,
 
-    visual_selection = colors.snow_storm.origin,
-
-    indent_guide = colors.snow_storm.origin,
-    whitespace = colors.snow_storm.origin,
-
-    foldtext = colors.polar_night.brighter,
-
-    menu_selection = colors.snow_storm.origin,
-    menu_background = colors.snow_storm.brighter,
-    menu_foreground = colors.polar_night.origin,
-
-    diagnostic_error = colors.aurora.red,
-    diagnostic_warning = colors.aurora.yellow,
-    diagnostic_info = colors.frost.polar_water,
-    diagnostic_hint = colors.frost.artic_water,
-
-    diff_add = colors.aurora.yellow,
-    diff_change = colors.aurora.green,
-    diff_delete = colors.aurora.red,
+    git_add = colors.aurora.green,
+    git_change = colors.aurora.yellow,
+    git_delete = colors.aurora.red,
+    git_text = colors.frost.artic_water,
+    git_ignore = colors.polar_night.light,
 })
 
 ---@type table<Nordify.Theme, Nordify.Palette>

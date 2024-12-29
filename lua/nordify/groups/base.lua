@@ -29,7 +29,7 @@ M.get = function(c, config)
         MsgArea = {}, -- Area for messages and cmdline
         MsgSeparator = {}, -- Separator for scrolled messages, `msgsep` flag of 'display'
         MoreMsg = { fg = c.ac0 }, -- |more-prompt|
-        NonText = { fg = c.fg5 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+        NonText = { fg = c.nontext }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
         Normal = { fg = c.fg0, bg = utils.make_transparent_bg(c, config) }, -- normal text
         NormalFloat = { fg = c.fg0, bg = c.bg0 }, -- Normal text in floating windows.
         FloatBorder = { fg = c.border1, bg = c.bg0 }, -- Borders of floating windows
@@ -39,9 +39,9 @@ M.get = function(c, config)
         PmenuThumb = { fg = c.ac0, bg = c.bg3 }, -- Popup menu: Thumb of the scrollbar.
         Question = { fg = c.fg0 }, -- |hit-enter| prompt and yes/no questions
         QuickFixLine = { fg = c.fg0, bg = c.none, reverse = true }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-        Search = config.search.theme == "vscode" and { fg = c.none, bg = utils.darken(c, c.search, 0.2) }
+        Search = config.search.theme == "vscode" and { fg = c.none, bg = utils.blend(c.search, c.bg0, 0.2) }
             or { fg = c.search, bg = c.none, reverse = true }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-        IncSearch = config.search.theme == "vscode" and { fg = c.fg0, bg = utils.darken(c, c.search, 0.5) }
+        IncSearch = config.search.theme == "vscode" and { fg = c.fg0, bg = utils.blend( c.search, c.bg0, 0.5) }
             or { fg = c.fg2, bg = c.search }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
         CurSearch = { link = "IncSearch" },
         SpecialKey = { fg = c.fg4 }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
@@ -58,7 +58,7 @@ M.get = function(c, config)
         Visual = { fg = c.none, bg = c.bg2 }, -- Visual mode selection
         VisualNOS = { fg = c.none, bg = c.bg2 }, -- Visual mode selection when vim is "Not Owning the Selection".
         WarningMsg = { fg = c.bg0, bg = c.aurora.yellow }, -- warning messages
-        Whitespace = { fg = c.fg5 }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
+        Whitespace = { fg = c.nontext }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
         WildMenu = { fg = c.ac0, bg = c.bg1 }, -- current match in 'wildmenu' completion
         qfLineNr = { fg = c.ac1 },
         qfFileName = { fg = c.ac0 },
@@ -84,9 +84,10 @@ M.get = function(c, config)
         DiagnosticInfo = { fg = c.info }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
         DiagnosticHint = { fg = c.hint }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
 
-        DiagnosticVirtualTextError = { bg = utils.darken(c, c.error, 0.1), fg = c.error }, -- Used for "Error" diagnostic virtual text DiagnosticVirtualTextWarn = { bg = darken(c.aurora.yellow, 0.1), fg = c.aurora.yellow }, -- Used for "Warning" diagnostic virtual text
-        DiagnosticVirtualTextInfo = { bg = utils.darken(c, c.info, 0.1), fg = c.info }, -- Used for "Information" diagnostic virtual text
-        DiagnosticVirtualTextHint = { bg = utils.darken(c, c.hint, 0.1), fg = c.hint }, -- Used for "Hint" diagnostic virtual text
+        DiagnosticVirtualTextError = { bg = utils.blend(c.error, c.bg0, 0.1), fg = c.error }, -- Used for "Error" diagnostic virtual text
+        DiagnosticVirtualTextWarn = { bg = utils.blend(c.warning, c.bg0, 0.1), fg = c.warning }, -- Used for "Warning" diagnostic virtual text
+        DiagnosticVirtualTextInfo = { bg = utils.blend(c.info, c.bg0, 0.1), fg = c.info }, -- Used for "Information" diagnostic virtual text
+        DiagnosticVirtualTextHint = { bg = utils.blend(c.hint, c.bg0, 0.1), fg = c.hint }, -- Used for "Hint" diagnostic virtual text
 
         DiagnosticUnderlineError = { undercurl = true, sp = c.error }, -- Used to underline "Error" diagnostics
         DiagnosticUnderlineWarn = { undercurl = true, sp = c.warning }, -- Used to underline "Warning" diagnostics
