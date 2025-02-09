@@ -31,6 +31,7 @@ M.plugins = {
     ["notifier.nvim"] = "notifier",
     ["nvim-tree.lua"] = "nvim-tree",
     ["rainbow-delimiters.nvim"] = "rainbow",
+    ["snacks.nvim"] = "snacks",
     ["telescope.nvim"] = "telescope",
     ["trouble.nvim"] = "trouble",
     ["vim-gitgutter"] = "gitgutter",
@@ -53,9 +54,10 @@ function M.get(name, colors, config)
     return mod.get(colors, config)
 end
 
----@param colors Nordify.Palette
+---@param theme Nordify.Theme
 ---@param config Nordify.InternalConfig
-function M.setup(colors, config)
+function M.setup(theme, config)
+    local colors = require("nordify.palette")[theme]
     local groups = {
         base = true,
         semantic_tokens = true,
@@ -100,7 +102,7 @@ function M.setup(colors, config)
     local names = vim.tbl_keys(groups)
     table.sort(names)
 
-    local cache = config.cache and utils.cache.read()
+    local cache = config.cache and utils.cache.read(theme)
 
     local inputs = {
         colors = colors,
@@ -120,7 +122,7 @@ function M.setup(colors, config)
             end
         end
         if config.cache then
-            utils.cache.write({ groups = ret, inputs = inputs })
+            utils.cache.write(theme, { groups = ret, inputs = inputs })
         end
     end
 
