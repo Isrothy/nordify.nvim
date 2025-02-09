@@ -114,15 +114,16 @@ end
 
 M.cache = {}
 
-function M.cache.file()
-    return vim.fn.stdpath("cache") .. "/nordify" .. ".json"
+function M.cache.file(key)
+    return vim.fn.stdpath("cache") .. "/nordify-" .. key .. ".json"
 end
 
-function M.cache.read()
+---@param key string
+function M.cache.read(key)
     ---@type boolean, Nordify.Cache
     local ok, ret = pcall(function()
         return vim.json.decode(
-            M.read(M.cache.file()),
+            M.read(M.cache.file(key)),
             { luanil = {
                 object = true,
                 array = true,
@@ -132,13 +133,16 @@ function M.cache.read()
     return ok and ret or nil
 end
 
+---@param key string
 ---@param data Nordify.Cache
-function M.cache.write(data)
-    pcall(M.write, M.cache.file(), vim.json.encode(data))
+function M.cache.write(key, data)
+    pcall(M.write, M.cache.file(key), vim.json.encode(data))
 end
 
 function M.cache.clear()
-    uv.fs_unlink(M.cache.file())
+    for _, style in ipairs({ "storm", "day", "night", "moon" }) do
+        uv.fs_unlink(M.cache.file(style))
+    end
 end
 
 return M

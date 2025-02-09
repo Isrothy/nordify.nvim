@@ -6,7 +6,7 @@ local M = {}
 M.set_colorscheme = function(theme)
     local config = require("nordify.config")
     local c = require("nordify.palette")[theme]
-    local groups = require("nordify.groups").setup(c, config)
+    local groups = require("nordify.groups").setup(theme, config)
 
     vim.cmd([[ highlight clear ]])
     if vim.g.colors_name then
