@@ -1,5 +1,3 @@
-local utils = require("nordify.utils")
-
 ---@alias Nordify.HighlightsFn fun(colors: Nordify.Palette, opts:Nordify.InternalConfig):vim.api.keyset.highlight
 
 ---@alias Nordify.Highlights table<string,vim.api.keyset.highlight>
@@ -13,6 +11,7 @@ M.plugins = {
     ["barbar.nvim"] = "barbar",
     ["blink.cmp"] = "blink",
     ["codeium.nvim"] = "codeium",
+    ["nvim-dap-ui"] = "dap-ui",
     ["diffview.nvim"] = "diffview",
     ["flash.nvim"] = "flash",
     ["gitsigns.nvim"] = "gitsigns",
@@ -21,7 +20,7 @@ M.plugins = {
     ["highlight-undo.nvim"] = "highlight-undo",
     ["leap.nvim"] = "leap",
     ["markview.nvim"] = "markview",
-    ["mini.indentscope"] = "mini_indentscope",
+    ["mini.indentscope"] = "mini-indentscope",
     ["neo-tree.nvim"] = "neo-tree",
     ["neogit"] = "neogit",
     ["noice.nvim"] = "noice",
@@ -43,6 +42,7 @@ local me = debug.getinfo(1, "S").source:sub(2)
 me = vim.fn.fnamemodify(me, ":h")
 
 function M.get_group(name)
+    local utils = require("nordify.utils")
     ---@type {get: Nordify.HighlightsFn, url: string}
     return utils.mod("nordify.groups." .. name)
 end
@@ -102,6 +102,7 @@ function M.setup(theme, config)
     local names = vim.tbl_keys(groups)
     table.sort(names)
 
+    local utils = require("nordify.utils")
     local cache = config.cache and utils.cache.read(theme)
 
     local inputs = {
